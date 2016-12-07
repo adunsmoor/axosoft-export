@@ -63,8 +63,7 @@ def export_defects(site, token):
         comments = get_defect_comments(id, site, token)
 
         with open('defects/%s.json'%(id), 'w') as f:
-            s = json.dumps(ticket, sort_keys=True, indent=2, separators=(',', ': '))
-            f.write(s)
+            f.write(json.dumps(ticket, sort_keys=True, indent=2, separators=(',', ': ')))
         with open('defects/%s.comment.json'%(id), 'w') as f:
             f.write(json.dumps(comments, sort_keys=True, indent=2, separators=(',', ': ')))
 
